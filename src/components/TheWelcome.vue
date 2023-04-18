@@ -4,9 +4,44 @@ import { computed } from 'vue'
 const store = useJobStore()
 const jobs = computed(() => {
   return store.jobLists
-
 })
-
+function lang(){
+  return store.jobLang
+}
+// interface Props {
+//   id: number,
+//   company: string,
+//   new: boolean,
+//   featured: boolean,
+//   position: string,
+//   role: string,
+//   level: string,
+//   postedAt: string,
+//   contract: string,
+//   location: string,
+//   languages: Language[],
+//   tools: Tools[]
+// }
+// interface Language {
+//   languages: string
+// }
+// interface Tools {
+//   tools: string
+// }
+// const props = defineProps({
+//   id: ,
+//   company: '',
+//   new: boolean,
+//   featured: boolean,
+//   position: string,
+//   role: string,
+//   level: string,
+//   postedAt: string,
+//   contract: string,
+//   location: string,
+//   languages: Language[],
+//   tools: Tools[]
+// })
 </script>
 
 <template>
@@ -14,7 +49,8 @@ const jobs = computed(() => {
     <div class="bg-white mt-20 mx-96 rounded-md shadow-lg" v-for="job in jobs" :key="job.id">
       <div class="flex justify-between py-6 px-10 items-center">
         <div class="flex space-x-4">
-          <div class="rounded-full h-12 w-12"><img :src="job.logo" alt="company_logo" class="h-full w-full"></div>
+          <div class="rounded-full h-14 w-14"><img :src="`/src/assets/images/` + job.logo" alt="company_logo"
+              class="h-full w-full"></div>
           <div class="flex md:flex-col space-y-2">
             <div class="flex space-x-2">
               <div>
@@ -38,35 +74,32 @@ const jobs = computed(() => {
                 <p class="text-dark-grayish-cyan text-sm">{{ job.contract }} .</p>
               </div>
               <div>
-              <p class="text-dark-grayish-cyan text-sm">{{ job.location }} </p>
+                <p class="text-dark-grayish-cyan text-sm">{{ job.location }} </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="flex space-x-4 " >
-        <button
-        v-for="i in job.languages" :key="i"
-          class="bg-light-grayish-cyan  hover:text-white  py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan">
-          <p class="px-2"> {{ i }}</p>
-        </button>
-      </div>
-
-        <!-- <button
-            class="bg-light-grayish-cyan  hover:text-white  py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan">
-            <p class="px-2"> {{job.languages[1]}}</p>
-        </button>
-        <button
-            class="bg-light-grayish-cyan  hover:text-white  py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan">
-            <p class="px-2"> HTML</p>
+        <div class="flex space-x-4 ">
+          <button
+            class="bg-light-grayish-cyan  hover:text-white   px-2 py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan"
+            :value="job.role">
+            <p class="px-2">{{ job.role }}</p>
           </button>
           <button
-            class="bg-light-grayish-cyan  hover:text-white  py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan">
-            <p class="px-2"> CSS</p>
+            class="bg-light-grayish-cyan  hover:text-white  py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan"
+            :value="job.level">
+            <p class="px-2">{{ job.level }}</p>
           </button>
-          <button
+          <button v-for="i in job.languages" :key="i"
+            class="bg-light-grayish-cyan  hover:text-white  py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan"
+            :value="job.languages" @click="lang">
+            <p class="px-2"> {{ i }}</p>
+          </button>
+          <button v-for="tool in job.tools" :key="tool"
             class="bg-light-grayish-cyan  hover:text-white  py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan">
-            <p class="px-2"> JavaScript</p>
-          </button> -->
+            <p class="px-2">{{ tool }}</p>
+          </button>
+        </div>
       </div>
     </div>
   </main>

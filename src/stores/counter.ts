@@ -12,13 +12,20 @@ export const useJobStore = defineStore('JobList', {
     jobLists(state){
       return state.jobs
     },
+    Joblanguage(state){
+      return state.jobs.filter((t)=>{
+       const lang= t.languages.valueOf()
+        console.log(lang);
+      })
+    }
     
+  },
+  actions:{
+    jobLang(lang:string){
+      if(lang==='frontend'){
+        lang=='frontend'
+        console.log('frontend');
+      }
+    }
   }
-  // const count = ref(0)
-  // const doubleCount = computed(() => count.value * 2)
-  // function increment() {
-  //   count.value++
-  // }
-
-  // return { count, doubleCount, increment }
 })
