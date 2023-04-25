@@ -5,27 +5,34 @@ import JobList from '../assets/data.json'
 export const useJobStore = defineStore('JobList', {
   state: () => {
     return {
-      jobs: JobList
+      jobs: JobList,
+      job:{
+        id:'',
+        languages:["HTML", "CSS","Javascript","python","Ruby",],
+        level:'',
+        role:'',
+        location:'',
+        contract:'',
+        postedAt:'',
+        company:'',
+        logo:'',
+        tools:[]
+      }
+      // jobLanguage:[]
     }
   },
-  getters:{
-    jobLists(state){
+  getters: {
+    jobLists(state) {
       return state.jobs
     },
-    Joblanguage(state){
-      return state.jobs.filter((t)=>{
-       const lang= t.languages.valueOf()
-        console.log(lang);
-      })
+    jobLanguage(state){
+      return state.job.languages
     }
-    
+
   },
-  actions:{
-    jobLang(lang:string){
-      if(lang==='frontend'){
-        lang=='frontend'
-        console.log('frontend');
-      }
+  actions: {
+    getLang(lang:string){
+     
     }
   }
 })
