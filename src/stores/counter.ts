@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import JobList from '../assets/data.json'
+import JobList from '@/data.json'
 
 export const useJobStore = defineStore('JobList', {
   state: () => {
