@@ -56,7 +56,7 @@ function selectLanguage() {
     <div class="bg-white mt-20 mx-96 rounded-md shadow-lg" v-for="job in jobs" :key="job.id">
       <div class="flex justify-between py-6 px-10 items-center">
         <div class="flex space-x-4">
-          <div class="rounded-full h-14 w-14"><img :src="`/dist/assets/images/${job.logo}`" alt="company_logo"
+          <div class="rounded-full h-14 w-14"><img :src="`/src/assets/images/${job.logo}`" alt="company_logo"
               class="h-full w-full"></div>
           <div class="flex md:flex-col space-y-2">
             <div class="flex space-x-2">
