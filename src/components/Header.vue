@@ -1,6 +1,6 @@
 <template>
     <header class="h-48 w-full bg-background-desaturated-dark-cyan relative ">
-        <img src="/src/assets/images/bg-header-desktop.svg" alt="" class="h-full w-full bg-no-repeat">
+        <img src="/images/bg-header-desktop.svg" alt="" class="h-full w-full bg-no-repeat">
         <div class="absolute  -bottom-10 inset-x-96">
             <div class="bg-white rounded-md shadow-lg h-20  w-full">
                 <div class="flex justify-between pt-6 px-10 space-x-48">
