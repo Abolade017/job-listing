@@ -68,6 +68,5 @@ function selectLanguage() {
       </div>
     </div>
   </div>
-  <!-- <img src="../assets/images/account.svg" v-for="job in jobs" :key="job.id" class="h-10 w-10 rounded-full" alt="" srcset=""> -->
 </template>
 <style></style>
