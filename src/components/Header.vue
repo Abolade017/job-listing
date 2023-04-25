@@ -1,10 +1,10 @@
 <template>
-    <header class="h-48 w-full bg-background-desaturated-dark-cyan relative ">
+    <header class="md:h-48 h-36 w-full bg-background-desaturated-dark-cyan relative">
         <img src="/images/bg-header-desktop.svg" alt="" class="h-full w-full bg-no-repeat">
-        <div class="absolute  -bottom-10 inset-x-96">
-            <div class="bg-white rounded-md shadow-lg h-20  w-full">
-                <div class="flex justify-between pt-6 px-10 space-x-48">
-                    <div class="flex space-x-6">
+        <div class="absolute   -bottom-20 md:-bottom-10 inset-x-4 md:inset-x-60">
+            <div class="bg-white rounded-md shadow-lg md:h-20 h-28 w-full ">
+                <div class="flex justify-between pt-6 px-4 md:px-10  md:space-x-48">
+                    <div class="flex flex-wrap md:flex-nowrap md:space-x-6 md:space-y-0 space-y-2 space-x-0">
                         <div class="flex bg-light-grayish-cyan items-center h-7 space-x-4 rounded-sm">
                             <button class="text-background-desaturated-dark-cyan  flex h-full pl-2 font-bold">frontend <span
                                     class="flex-1  rounded-md pl-4">
@@ -46,5 +46,5 @@
                 </div>
             </div>
         </div>
-        <!-- <img src="./assets/images/photosnap.svg" class="rounded-full w-12 h-12" alt=""> -->
-</header></template>
+    </header>
+</template>

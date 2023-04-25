@@ -4,8 +4,8 @@ import Header from '@/components/Header.vue';
 </script>
 
 <template>
-  <Header />
-  <main>
+  <Header class=""/>
+  <main class="pt-28">
     <TheWelcome />
   </main>
 </template>
