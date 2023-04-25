@@ -48,6 +48,7 @@ import { RouterLink, RouterView } from 'vue-router'
         </div>
       </div>
     </div>
+    <img src="./assets/images/photosnap.svg" class="rounded-full w-12 h-12" alt="">
   </header>
   <RouterView />
 </template>
