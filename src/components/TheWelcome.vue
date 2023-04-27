@@ -1,20 +1,28 @@
 <script setup lang="ts">
 import { useJobStore } from '@/stores/counter';
-import { storeToRefs } from 'pinia';
 import { computed } from 'vue'
 const store = useJobStore()
-const jobs = computed(() => {
-  return store.jobLists
+
+// const jobs = computed(() => {
+//   return store.jobLists
+// })
+
+const filteredJobList = computed(() => {
+  //@ts-ignore
+  return store.filteredJobs
 })
-const lang = computed(() => { return store.jobLanguage })
-function selectLanguage() {
-  return store.getLang
+// const lang = computed(() => { return store.jobLanguage })
+
+function selectLanguage(lang: string) {
+  return store.addToFilter(lang)
 }
 </script>
 
 <template>
-  <div class="bg-white mt-10 w-auto mx-4 md:mx-60 rounded-md shadow-2xl md:shadow-lg" v-for="job in jobs" :key="job.id">
-    <div class="flex md:flex-row flex-col md:justify-between  justify-start py-6 md:px-10 px-4 items-start md:items-center">
+  <div class="bg-white mt-10 w-auto mx-4 md:mx-60 rounded-md shadow-2xl md:shadow-lg" v-for="job in filteredJobList"
+    :key="job.id">
+    <div
+      class="flex md:flex-row flex-col md:justify-between  justify-start py-6 md:px-10 px-4 items-start md:items-center">
       <div class="flex flex-col md:flex-row md:space-x-4 space-x-0 md:space-y-0 space-y-2">
         <div class="rounded-full h-14 w-14 -mt-12 md:mt-0"><img :src="job.logo" :alt="job.company"></div>
         <div class="flex flex-col space-y-2">
@@ -57,10 +65,10 @@ function selectLanguage() {
           :value="job.level">
           <p class="px-2">{{ job.level }}</p>
         </button>
-        <button v-for="i in job.languages" :key="i" @click="selectLanguage"
+        <button v-for="(l, ix) in job.languages" :key="ix" @click="selectLanguage(l)"
           class="bg-light-grayish-cyan  hover:text-white py-0 md:py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan"
           :value="job.languages">
-          <p class="px-2"> {{ i }}</p>
+          <p class="px-2"> {{ l }}</p>
         </button>
         <button v-for="tool in job.tools" :key="tool"
           class="bg-light-grayish-cyan  hover:text-white  py-0 md:py-1 hover:bg-background-desaturated-dark-cyan rounded-sm h-8 text-background-desaturated-dark-cyan">
