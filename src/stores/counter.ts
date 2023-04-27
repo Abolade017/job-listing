@@ -18,7 +18,7 @@ export const useJobStore = defineStore('JobList', {
   state: () => {
     return {
       jobs: JobList,
-      show:false,
+      show: false,
       Language: [],
       filters: [] as string[],
 
@@ -52,15 +52,17 @@ export const useJobStore = defineStore('JobList', {
       if (this.filters.includes(lang)) return;
 
       this.filters.push(lang);
-      return this.show=true
+      return this.show = true
     },
     removeFilter(lang: string) {
       this.filters = this.filters.filter((l: string) => l != lang);
     },
     clearFilter() {
       if (this.filters.length) {
+        this.show = false
         return this.filters.length = 0;
-      
+
+
       }
     }
   }
